@@ -1,4 +1,4 @@
-SPMe model parameters:,Mohtat2020
+DFN model parameters:,Mohtat2020
 Ideal gas constant [J.K-1.mol-1],8.314462618
 Faraday constant [C.mol-1],96485.33212
 Boltzmann constant [J.K-1],1.380649e-23
@@ -52,8 +52,8 @@ Current function [A],5.0
 Contact resistance [Ohm],0
 Negative electrode conductivity [S.m-1],100.0
 Maximum concentration in negative electrode [mol.m-3],28746.0
-Negative electrode diffusivity [m2.s-1],<function graphite_diffusivity_PeymanMPM at 0x000001EE8E2D81F0>
-Negative electrode OCP [V],<function graphite_ocp_PeymanMPM at 0x000001EE8E2D8790>
+Negative particle diffusivity [m2.s-1],<function graphite_diffusivity_PeymanMPM at 0x000001A703A6BC40>
+Negative electrode OCP [V],<function graphite_ocp_PeymanMPM at 0x000001A703A68860>
 Negative electrode porosity,0.3
 Negative electrode active material volume fraction,0.61
 Negative particle radius [m],2.5e-06
@@ -63,15 +63,15 @@ Negative electrode transport efficiency,0.16
 Negative electrode reference exchange-current density [A.m-2(m3.mol)1.5],1.061e-06
 Negative electrode charge transfer coefficient,0.5
 Negative electrode double-layer capacity [F.m-2],0.2
-Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_PeymanMPM at 0x000001EE8E2D8DC0>
+Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_PeymanMPM at 0x000001A703A68680>
 Negative electrode density [kg.m-3],3100.0
 Negative electrode specific heat capacity [J.kg-1.K-1],1100.0
 Negative electrode thermal conductivity [W.m-1.K-1],1.7
-Negative electrode OCP entropic change [V.K-1],<function graphite_entropic_change_PeymanMPM at 0x000001EE8E496D30>
+Negative electrode OCP entropic change [V.K-1],<function graphite_entropic_change_PeymanMPM at 0x000001A703A6BE20>
 Positive electrode conductivity [S.m-1],100.0
 Maximum concentration in positive electrode [mol.m-3],35380.0
-Positive electrode diffusivity [m2.s-1],<function NMC_diffusivity_PeymanMPM at 0x000001EE8E4960D0>
-Positive electrode OCP [V],<function NMC_ocp_PeymanMPM at 0x000001EE8E496A60>
+Positive particle diffusivity [m2.s-1],<function NMC_diffusivity_PeymanMPM at 0x000001A703A6BEC0>
+Positive electrode OCP [V],<function NMC_ocp_PeymanMPM at 0x000001A703A6BCE0>
 Positive electrode porosity,0.3
 Positive electrode active material volume fraction,0.445
 Positive particle radius [m],3.5e-06
@@ -81,11 +81,11 @@ Positive electrode transport efficiency,0.16
 Positive electrode reference exchange-current density [A.m-2(m3.mol)1.5],4.824e-06
 Positive electrode charge transfer coefficient,0.5
 Positive electrode double-layer capacity [F.m-2],0.2
-Positive electrode exchange-current density [A.m-2],<function NMC_electrolyte_exchange_current_density_PeymanMPM at 0x000001EE8E4969D0>
+Positive electrode exchange-current density [A.m-2],<function NMC_electrolyte_exchange_current_density_PeymanMPM at 0x000001A703A6BA60>
 Positive electrode density [kg.m-3],3100.0
 Positive electrode specific heat capacity [J.kg-1.K-1],1100.0
 Positive electrode thermal conductivity [W.m-1.K-1],2.1
-Positive electrode OCP entropic change [V.K-1],<function NMC_entropic_change_PeymanMPM at 0x000001EE8E496AF0>
+Positive electrode OCP entropic change [V.K-1],<function NMC_entropic_change_PeymanMPM at 0x000001A703A6B740>
 Separator porosity,0.4
 Separator Bruggeman coefficient (electrolyte),1.5
 Separator density [kg.m-3],397.0
@@ -96,8 +96,8 @@ Initial concentration in electrolyte [mol.m-3],1000.0
 Cation transference number,0.38
 Thermodynamic factor,1.0
 Typical lithium ion diffusivity [m2.s-1],5.34e-10
-Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_PeymanMPM at 0x000001EE8E496B80>
-Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_PeymanMPM at 0x000001EE8E496C10>
+Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_PeymanMPM at 0x000001A703B58E00>
+Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_PeymanMPM at 0x000001A703B582C0>
 Reference temperature [K],298.15
 Negative current collector surface heat transfer coefficient [W.m-2.K-1],0.0
 Positive current collector surface heat transfer coefficient [W.m-2.K-1],0.0
@@ -110,6 +110,8 @@ Number of electrodes connected in parallel to make a cell,1.0
 Number of cells connected in series to make a battery,1.0
 Lower voltage cut-off [V],2.8
 Upper voltage cut-off [V],4.2
+Open-circuit voltage at 0% SOC [V],2.8
+Open-circuit voltage at 100% SOC [V],4.2
 Initial concentration in negative electrode [mol.m-3],48.8682
 Initial concentration in positive electrode [mol.m-3],31513.0
 Initial temperature [K],298.15

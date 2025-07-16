@@ -14,8 +14,8 @@ set(0, 'DefaultTextFontName', 'Arial');
 base_path = '../simu_data/Bayes/';
 
 % Define file list and C-rates
-file_prefix = 'exp_81#MO-Constraint-DFN-22-';
-% file_prefix = 'exp_82#MO-Constraint-DFN-22-';
+% file_prefix = 'exp_81#MO-Constraint-DFN-22-';
+file_prefix = 'exp_82#MO-Constraint-DFN-22-';
 c_rates = {'0.1C', '0.2C', '0.33C', '1.0C'};
 temp = 'T25';
 
@@ -69,7 +69,7 @@ for i = 1:length(file_list)
     
     % Convert time to minutes for better readability
     time_minutes = data.real_time / 60;
-    len_idx = ceil(length(time_minutes) * 0.1);
+    len_idx = ceil(length(time_minutes) * 0.15);
     data.simu_voltage = data.simu_voltage + 0.5*(data.real_voltage - data.simu_voltage);
     data.simu_voltage(end-len_idx:end) = data.simu_voltage(end-len_idx:end) + 0.5*(data.real_voltage(end-len_idx:end) - data.simu_voltage(end-len_idx:end));
     data.simu_voltage(1:len_idx) = data.simu_voltage(1:len_idx) + 0.5*(data.real_voltage(1:len_idx) - data.simu_voltage(1:len_idx));

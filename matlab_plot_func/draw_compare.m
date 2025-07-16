@@ -29,8 +29,7 @@ if ~exist(output_path, 'dir')
 end
 
 % Define method names for legend and filenames
-method_names = {'Experimental', 'Normal Bayes', 'Bayes + Local', 'Constrained Bayes + Local'};
-method_short = {'Exp', 'NB', 'BL', 'CBL'};
+method_names = {'Experimental', 'SBO', 'SGLO', 'RA-SGLO'};
 
 % Define Nature-style color scheme
 colors = [
@@ -107,7 +106,6 @@ for i = 1:length(c_rates)
     normal_bayes_error = normal_bayes_voltage - experimental_voltage;
     bayes_local_error = bayes_local_voltage - experimental_voltage;
     constrained_error = constrained_voltage - experimental_voltage;
-    
     % Calculate RMSE for display in title
     normal_bayes_rmse = sqrt(mean(normal_bayes_error.^2));
     bayes_local_rmse = sqrt(mean(bayes_local_error.^2));
@@ -200,11 +198,19 @@ for i = 1:length(c_rates)
     y_range_zoom2 = max_voltage_zoom2 - min_voltage_zoom2;
     
     % 在主图上绘制第一个虚线矩形框
+    p1 = patch([zoom1_start, zoom1_end, zoom1_end, zoom1_start], ...
+          [min_voltage_zoom1-0.1*y_range_zoom1, min_voltage_zoom1-0.1*y_range_zoom1, ...
+           max_voltage_zoom1+0.1*y_range_zoom1, max_voltage_zoom1+0.1*y_range_zoom1], ...
+          [0.8500, 0.3250, 0.0980], 'FaceAlpha', 0.3, 'EdgeColor', 'none', 'HandleVisibility', 'off');
     rectangle('Position', [zoom1_start, min_voltage_zoom1-0.1*y_range_zoom1, ...
               zoom1_end-zoom1_start, y_range_zoom1+0.2*y_range_zoom1], ...
               'EdgeColor', [0.25, 0.25, 0.25], 'LineStyle', '--', 'LineWidth', 2);
     
     % 在主图上绘制第二个虚线矩形框
+    p2 = patch([zoom2_start, zoom2_end, zoom2_end, zoom2_start], ...
+          [min_voltage_zoom2-0.1*y_range_zoom2, min_voltage_zoom2-0.1*y_range_zoom2, ...
+           max_voltage_zoom2+0.1*y_range_zoom2, max_voltage_zoom2+0.1*y_range_zoom2], ...
+          [0.8500, 0.3250, 0.0980], 'FaceAlpha', 0.3, 'EdgeColor', 'none', 'HandleVisibility', 'off');
     rectangle('Position', [zoom2_start, min_voltage_zoom2-0.1*y_range_zoom2, ...
               zoom2_end-zoom2_start, y_range_zoom2+0.2*y_range_zoom2], ...
               'EdgeColor', [0.25, 0.25, 0.25], 'LineStyle', '--', 'LineWidth', 2);
@@ -260,7 +266,7 @@ for i = 1:length(c_rates)
     ylim([min_voltage_zoom1-0.1*y_range_zoom1, max_voltage_zoom1+0.1*y_range_zoom1]);
     
     % 设置放大图格式
-    set(inset1, 'FontSize', 8, 'LineWidth', 1, 'Box', 'on');
+    set(inset1, 'FontSize', 8, 'LineWidth', 1, 'Box', 'on', 'Color', [1, 1, 1]);
     grid on;
     drawnow; % 立即绘制
     
@@ -279,7 +285,7 @@ for i = 1:length(c_rates)
     ylim([min_voltage_zoom2-0.1*y_range_zoom2, max_voltage_zoom2+0.1*y_range_zoom2]);
     
     % 设置放大图格式
-    set(inset2, 'FontSize', 8, 'LineWidth', 1, 'Box', 'on');
+    set(inset2, 'FontSize', 8, 'LineWidth', 1, 'Box', 'on', 'Color', [1, 1, 1]);
     grid on;
     drawnow; % 立即绘制
     
@@ -288,10 +294,10 @@ for i = 1:length(c_rates)
     % =====================================================================
     % 注意：使用归一化坐标更可靠
     % % 添加从主图矩形框到第一个放大图的箭头
-    % annotation('arrow', [0.15, 0.2], [0.5, 0.65], 'Color', [0.3 0.3 0.3], 'LineWidth', 1.2);
+    % annotation('arrow', [0.18, 0.25], [0.8, 0.75], 'Color', [0.3 0.3 0.3], 'LineWidth', 2);
     % 
     % % 添加从主图矩形框到第二个放大图的箭头
-    % annotation('arrow', [0.85, 0.7], [0.5, 0.65], 'Color', [0.3 0.3 0.3], 'LineWidth', 1.2);
+    % annotation('arrow', [0.85, 0.7], [0.5, 0.65], 'Color', [0.3 0.3 0.3], 'LineWidth', 2);
     
     % =====================================================================
     % 调整子图间距并保存图形

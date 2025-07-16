@@ -1,8 +1,17 @@
-SPMe model parameters:,Ecker2015
+DFN model parameters:,Ecker2015
 Ideal gas constant [J.K-1.mol-1],8.314462618
 Faraday constant [C.mol-1],96485.33212
 Boltzmann constant [J.K-1],1.380649e-23
 Electron charge [C],1.602176634e-19
+Lithium metal partial molar volume [m3.mol-1],1.3e-05
+Lithium plating kinetic rate constant [m.s-1],1e-10
+Exchange-current density for plating [A.m-2],<function plating_exchange_current_density_OKane2020 at 0x000001A70399CFE0>
+Exchange-current density for stripping [A.m-2],<function stripping_exchange_current_density_OKane2020 at 0x000001A70399C400>
+Initial plated lithium concentration [mol.m-3],0.0
+Typical plated lithium concentration [mol.m-3],1000.0
+Lithium plating transfer coefficient,0.5
+Dead lithium decay constant [s-1],1e-06
+Dead lithium decay rate [s-1],<function SEI_limited_dead_lithium_OKane2022 at 0x000001A70399C360>
 Ratio of lithium moles to SEI moles,2.0
 Inner SEI reaction proportion,0.5
 Inner SEI partial molar volume [m3.mol-1],9.585e-05
@@ -53,28 +62,28 @@ Current function [A],0.15652
 Contact resistance [Ohm],0
 Negative electrode conductivity [S.m-1],14.0
 Maximum concentration in negative electrode [mol.m-3],31920.0
-Negative electrode diffusivity [m2.s-1],<function graphite_diffusivity_Ecker2015 at 0x000001EE8E3041F0>
-Negative electrode OCP [V],<function graphite_ocp_Ecker2015 at 0x000001EE8E321E50>
+Negative particle diffusivity [m2.s-1],<function graphite_diffusivity_Ecker2015 at 0x000001A70399FB00>
+Negative electrode OCP [V],<function graphite_ocp_Ecker2015 at 0x000001A70399F600>
 Negative electrode porosity,0.329
 Negative electrode active material volume fraction,0.372403
 Negative particle radius [m],1.37e-05
 Negative electrode Bruggeman coefficient (electrolyte),1.6372789338386007
 Negative electrode Bruggeman coefficient (electrode),0.0
-Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Ecker2015 at 0x000001EE8E321DC0>
+Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Ecker2015 at 0x000001A70399C900>
 Negative electrode density [kg.m-3],1555.0
 Negative electrode specific heat capacity [J.kg-1.K-1],1437.0
 Negative electrode thermal conductivity [W.m-1.K-1],1.58
 Negative electrode OCP entropic change [V.K-1],0.0
 Positive electrode conductivity [S.m-1],68.1
 Maximum concentration in positive electrode [mol.m-3],48580.0
-Positive electrode diffusivity [m2.s-1],<function nco_diffusivity_Ecker2015 at 0x000001EE8E321D30>
-Positive electrode OCP [V],<function nco_ocp_Ecker2015 at 0x000001EE8E321CA0>
+Positive particle diffusivity [m2.s-1],<function nco_diffusivity_Ecker2015 at 0x000001A70399D800>
+Positive electrode OCP [V],<function nco_ocp_Ecker2015 at 0x000001A70399EC00>
 Positive electrode porosity,0.296
 Positive electrode active material volume fraction,0.40832
 Positive particle radius [m],6.5e-06
 Positive electrode Bruggeman coefficient (electrolyte),1.5442267190786427
 Positive electrode Bruggeman coefficient (electrode),0.0
-Positive electrode exchange-current density [A.m-2],<function nco_electrolyte_exchange_current_density_Ecker2015 at 0x000001EE8E321B80>
+Positive electrode exchange-current density [A.m-2],<function nco_electrolyte_exchange_current_density_Ecker2015 at 0x000001A70399FC40>
 Positive electrode density [kg.m-3],2895.0
 Positive electrode specific heat capacity [J.kg-1.K-1],1270.0
 Positive electrode thermal conductivity [W.m-1.K-1],1.04
@@ -87,8 +96,8 @@ Separator thermal conductivity [W.m-1.K-1],0.34
 Initial concentration in electrolyte [mol.m-3],1000.0
 Cation transference number,0.26
 Thermodynamic factor,1.0
-Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Ecker2015 at 0x000001EE8E321AF0>
-Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Ecker2015 at 0x000001EE8E321A60>
+Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Ecker2015 at 0x000001A70399DB20>
+Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Ecker2015 at 0x000001A70399CC20>
 Reference temperature [K],296.15
 Negative current collector surface heat transfer coefficient [W.m-2.K-1],10.0
 Positive current collector surface heat transfer coefficient [W.m-2.K-1],10.0
@@ -101,7 +110,9 @@ Number of electrodes connected in parallel to make a cell,1.0
 Number of cells connected in series to make a battery,1.0
 Lower voltage cut-off [V],2.5
 Upper voltage cut-off [V],4.2
+Open-circuit voltage at 0% SOC [V],2.5
+Open-circuit voltage at 100% SOC [V],4.2
 Initial concentration in negative electrode [mol.m-3],26120.05
 Initial concentration in positive electrode [mol.m-3],12630.8
 Initial temperature [K],298.15
-citations,"['Ecker2015i', 'Ecker2015ii', 'Zhao2018', 'Hales2019', 'Richardson2020']"
+citations,"['Ecker2015i', 'Ecker2015ii', 'Zhao2018', 'Hales2019', 'Richardson2020', 'OKane2020']"

@@ -1,10 +1,10 @@
 close all; clear; clc;
-plot_parameter_sensitivity('N_parallel')
+% plot_parameter_sensitivity('N_parallel')
 plot_parameter_sensitivity('electrode_height')
-plot_parameter_sensitivity('electrode_width')
+% plot_parameter_sensitivity('electrode_width')
 plot_parameter_sensitivity('Initial_concentration_in_positive_electrode')
-plot_parameter_sensitivity('Negative_electrode_active_material_volume_fraction')
-plot_parameter_sensitivity('Negative_electrode_thickness')
+% plot_parameter_sensitivity('Negative_electrode_active_material_volume_fraction')
+% plot_parameter_sensitivity('Negative_electrode_thickness')
 %% function
 function plot_parameter_sensitivity(param_name)
     % Creates publication-quality plots from parameter sensitivity data
@@ -72,28 +72,38 @@ function plot_parameter_sensitivity(param_name)
         fig = figure('Position', [100, 100, 800, 600]);
         hold on;
         
-        % Create colormap - using MATLAB's built-in parula (perceptually uniform)
+        % Create colormap - using parula colormap (MATLAB's default perceptually uniform)
         cmap = parula(width(data)-1); % One color for each data column (excluding time)
+        
+        % Find max voltage for ylim
+        max_voltage = 0;
         
         % Plot each parameter value - USING COLUMN INDEX INSTEAD OF NAMES
         for j = 2:width(data) % Start from column 2 (first column is time)
             voltage = data{:, j};
             if any(~isnan(voltage)) % Check if there's valid data
-                plot(time, voltage, 'LineWidth', 1.5, 'Color', cmap(j-1,:));
+                plot(time, voltage, 'LineWidth', 2.0, 'Color', cmap(j-1,:));
+                % Update max voltage if needed
+                current_max_voltage = max(voltage(~isnan(voltage)));
+                if current_max_voltage > max_voltage
+                    max_voltage = current_max_voltage;
+                end
             end
         end
         % Set xlim to max time + 60
         xlim([0, max(time) + 60/3600]);  % Add 60 seconds, converted to hours
+        % Set ylim with minimum 2.2V
+        ylim([2.2, 3.4]);  % Add a small buffer to max voltage
         
         % Add labels and title
-        xlabel('Time (h)', 'FontSize', 14, 'FontWeight', 'bold');
-        ylabel('Terminal Voltage (V)', 'FontSize', 14, 'FontWeight', 'bold');
+        xlabel('Time (h)', 'FontSize', 18, 'FontWeight', 'normal');
+        ylabel('Terminal Voltage (V)', 'FontSize', 18, 'FontWeight', 'normal');
         % title(['Discharge Curves at ', num2str(c_rate), 'C: Effect of ', strrep(param_name, '_', '\_')], ...
         %       'FontSize', 16, 'FontWeight', 'bold');
         
         % Add colorbar
         cb = colorbar;
-        colormap(cmap);
+        colormap(parula);
         caxis([min(param_values), max(param_values)]);
         param_display = strrep(param_name, '_', ' ');
         words = strsplit(param_display, ' ');
@@ -103,10 +113,10 @@ function plot_parameter_sensitivity(param_name)
             end
         end
         param_display = strjoin(words, ' ');
-        ylabel(cb, param_display, 'FontSize', 14, 'FontWeight', 'bold');
+        ylabel(cb, param_display, 'FontSize', 14, 'FontWeight', 'normal');
         
         % Format plot
-        set(gca, 'FontSize', 12, 'LineWidth', 1.5, 'Box', 'on');
+        set(gca, 'FontSize', 14, 'LineWidth', 2, 'Box', 'on');
         grid on;
         
         % Adjust figure
@@ -114,17 +124,17 @@ function plot_parameter_sensitivity(param_name)
 
         if strcmp(param_name, 'Initial_concentration_in_positive_electrode') && c_rate == 1
             zoom_rect = rectangle('Position', [0, 3.1, 0.1, 0.3], 'EdgeColor', [0.8, 0.2, 0.2], ...
-                 'LineWidth', 1.5, 'LineStyle', '-');
-            annotation('arrow', [0.2, 0.25], [0.8, 0.75], 'Color', [0.8, 0.2, 0.2], 'LineWidth', 1.5);
+                 'LineWidth', 2, 'LineStyle', '-');
+            annotation('arrow', [0.2, 0.25], [0.72, 0.65], 'Color', [0.8, 0.2, 0.2], 'LineWidth', 2);
             % Create an inset axes
-            inset_axes = axes('Position', [0.2, 0.5, 0.3, 0.25]);  % [left, bottom, width, height]
+            inset_axes = axes('Position', [0.2, 0.4, 0.3, 0.3]);  % [left, bottom, width, height]
             hold on;
             
             % Plot the same data in the inset
             for j = 2:width(data)
                 voltage = data{:, j};
                 if any(~isnan(voltage))
-                    plot(time, voltage, 'LineWidth', 1.5, 'Color', cmap(j-1,:));
+                    plot(time, voltage, 'LineWidth', 2.0, 'Color', cmap(j-1,:));
                 end
             end
             
@@ -133,7 +143,7 @@ function plot_parameter_sensitivity(param_name)
             ylim([3.1, 3.4]); % y from 3.1 to 3.4
             
             % Format the inset
-            set(inset_axes, 'FontSize', 10, 'LineWidth', 1.2, 'Box', 'on');
+            set(inset_axes, 'FontSize', 10, 'LineWidth', 2, 'Box', 'on');
             grid on;
             
             % Go back to the main axes for the rest of the code
@@ -150,12 +160,12 @@ function plot_parameter_sensitivity(param_name)
     fig_combined = figure('Position', [100, 100, 800, 600]);
     hold on;
     
-    % Define colormaps for each C-rate using MATLAB's built-in scientific colormaps
+    % Define colormap for each C-rate using MATLAB's built-in scientific colormaps
     colormaps = {
-        parula(width(all_data{1}.data)-1),   % 0.1C - blue to yellow
-        cool(width(all_data{2}.data)-1),     % 0.2C - cyan to magenta
-        hot(width(all_data{3}.data)-1),      % 0.33C - black to red to yellow
-        turbo(width(all_data{4}.data)-1)     % 1C - improved rainbow
+        parula(width(all_data{1}.data)-1),   % 0.1C - parula (MATLAB's default perceptually uniform)
+        jet(width(all_data{2}.data)-1),       % 0.2C - jet (rainbow)
+        hot(width(all_data{3}.data)-1),       % 0.33C - hot (black through red, orange, and yellow to white)
+        cool(width(all_data{4}.data)-1)       % 1C - cool (shades of cyan and magenta)
     };
     
     % Line styles for different C-rates
@@ -164,6 +174,7 @@ function plot_parameter_sensitivity(param_name)
     % Plot data for each C-rate
     legendEntries = cell(1, length(c_rates) * (width(data)-1));
     legendCount = 0;
+    max_voltage = 0;
     
     for i = 1:length(c_rates)
         if isempty(all_data{i})
@@ -184,7 +195,13 @@ function plot_parameter_sensitivity(param_name)
             voltage = data{:, j};
             
             if any(~isnan(voltage)) % Check if there's valid data
-                p = plot(time, voltage, line_styles{i}, 'LineWidth', 1.0, 'Color', colormaps{i}(j-1,:));
+                p = plot(time, voltage, line_styles{i}, 'LineWidth', 1.5, 'Color', colormaps{i}(j-1,:));
+                
+                % Update max voltage
+                current_max_voltage = max(voltage(~isnan(voltage)));
+                if current_max_voltage > max_voltage
+                    max_voltage = current_max_voltage;
+                end
                 
                 % Add to legend only for a subset of lines to keep it readable
                 if mod(j, 4) == 0  % Add every 4th line to the legend
@@ -199,6 +216,9 @@ function plot_parameter_sensitivity(param_name)
         end
     end
     xlim([0, max_time_across_all + 60/3600]);
+    % Set ylim with minimum 2.2V
+    ylim([2.2, 3.4]);  % Add a small buffer to max voltage
+    
     % Add labels and title
     xlabel('Time (h)', 'FontSize', 14, 'FontWeight', 'bold');
     ylabel('Terminal Voltage (V)', 'FontSize', 14, 'FontWeight', 'bold');

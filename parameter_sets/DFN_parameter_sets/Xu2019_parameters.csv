@@ -1,4 +1,4 @@
-SPMe model parameters:,Xu2019
+DFN model parameters:,Xu2019
 Ideal gas constant [J.K-1.mol-1],8.314462618
 Faraday constant [C.mol-1],96485.33212
 Boltzmann constant [J.K-1],1.380649e-23
@@ -36,14 +36,14 @@ Contact resistance [Ohm],0
 Negative electrode OCP [V],0.0
 Negative electrode conductivity [S.m-1],10776000.0
 Negative electrode OCP entropic change [V.K-1],0.0
-Typical plated lithium concentration [mol.m-3],76900.0
-Exchange-current density for plating [A.m-2],<function li_metal_electrolyte_exchange_current_density_Xu2019 at 0x000001EE8E4F5F70>
+Lithium metal partial molar volume [m3.mol-1],1.3e-05
+Exchange-current density for lithium metal electrode [A.m-2],<function li_metal_electrolyte_exchange_current_density_Xu2019 at 0x000001A703A6AF20>
 Negative electrode charge transfer coefficient,0.5
 Negative electrode double-layer capacity [F.m-2],0.2
 Positive electrode conductivity [S.m-1],100.0
 Maximum concentration in positive electrode [mol.m-3],48230.0
-Positive electrode diffusivity [m2.s-1],1e-14
-Positive electrode OCP [V],<function nmc_ocp_Xu2019 at 0x000001EE8E4F5790>
+Positive particle diffusivity [m2.s-1],1e-14
+Positive electrode OCP [V],<function nmc_ocp_Xu2019 at 0x000001A703A69EE0>
 Positive electrode porosity,0.331
 Positive electrode active material volume fraction,0.518
 Positive particle radius [m],5.3e-06
@@ -51,15 +51,15 @@ Positive electrode Bruggeman coefficient (electrolyte),1.5
 Positive electrode Bruggeman coefficient (electrode),1.5
 Positive electrode OCP entropic change [V.K-1],0.0
 Positive electrode charge transfer coefficient,0.5
-Positive electrode exchange-current density [A.m-2],<function nmc_electrolyte_exchange_current_density_Xu2019 at 0x000001EE8E304940>
+Positive electrode exchange-current density [A.m-2],<function nmc_electrolyte_exchange_current_density_Xu2019 at 0x000001A703A68400>
 Positive electrode double-layer capacity [F.m-2],0.2
 Separator porosity,0.39
 Separator Bruggeman coefficient (electrolyte),1.5
 Separator Bruggeman coefficient (electrode),1.5
 Initial concentration in electrolyte [mol.m-3],1000.0
 Cation transference number,0.38
-Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Valoen2005 at 0x000001EE8E304EE0>
-Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Valoen2005 at 0x000001EE8E2CA430>
+Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Valoen2005 at 0x000001A703A0B240>
+Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Valoen2005 at 0x000001A703B5B060>
 Thermodynamic factor,1.0
 Ambient temperature [K],298.15
 Reference temperature [K],298.15
@@ -68,6 +68,8 @@ Number of electrodes connected in parallel to make a cell,1.0
 Number of cells connected in series to make a battery,1.0
 Lower voltage cut-off [V],3.5
 Upper voltage cut-off [V],4.2
+Open-circuit voltage at 0% SOC [V],3.5
+Open-circuit voltage at 100% SOC [V],4.2
 Initial concentration in positive electrode [mol.m-3],4631.0
 Initial temperature [K],298.15
 citations,"['Xu2019', 'Valoen2005']"

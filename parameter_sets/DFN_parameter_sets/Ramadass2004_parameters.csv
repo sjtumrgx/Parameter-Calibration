@@ -1,4 +1,4 @@
-SPMe model parameters:,Ramadass2004
+DFN model parameters:,Ramadass2004
 Ideal gas constant [J.K-1.mol-1],8.314462618
 Faraday constant [C.mol-1],96485.33212
 Boltzmann constant [J.K-1],1.380649e-23
@@ -49,8 +49,8 @@ Current function [A],1.0
 Contact resistance [Ohm],0
 Negative electrode conductivity [S.m-1],100.0
 Maximum concentration in negative electrode [mol.m-3],30555.0
-Negative electrode diffusivity [m2.s-1],<function graphite_mcmb2528_diffusivity_Dualfoil1998 at 0x000001EE8E4F5C10>
-Negative electrode OCP [V],<function graphite_ocp_Ramadass2004 at 0x000001EEE712F0D0>
+Negative particle diffusivity [m2.s-1],<function graphite_mcmb2528_diffusivity_Dualfoil1998 at 0x000001A703B591C0>
+Negative electrode OCP [V],<function graphite_ocp_Ramadass2004 at 0x000001A703B59120>
 Negative electrode porosity,0.485
 Negative electrode active material volume fraction,0.49
 Negative particle radius [m],2e-06
@@ -58,15 +58,15 @@ Negative electrode Bruggeman coefficient (electrolyte),4.0
 Negative electrode Bruggeman coefficient (electrode),4.0
 Negative electrode charge transfer coefficient,0.5
 Negative electrode double-layer capacity [F.m-2],0.2
-Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Ramadass2004 at 0x000001EE8E2CA550>
+Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Ramadass2004 at 0x000001A703B58860>
 Negative electrode density [kg.m-3],1657.0
 Negative electrode specific heat capacity [J.kg-1.K-1],700.0
 Negative electrode thermal conductivity [W.m-1.K-1],1.7
-Negative electrode OCP entropic change [V.K-1],<function graphite_entropic_change_Moura2016 at 0x000001EE8E2CA280>
+Negative electrode OCP entropic change [V.K-1],<function graphite_entropic_change_Moura2016 at 0x000001A703B58900>
 Positive electrode conductivity [S.m-1],100.0
 Maximum concentration in positive electrode [mol.m-3],51555.0
-Positive electrode diffusivity [m2.s-1],<function lico2_diffusivity_Ramadass2004 at 0x000001EE8E2CACA0>
-Positive electrode OCP [V],<function lico2_ocp_Ramadass2004 at 0x000001EE8E2CA1F0>
+Positive particle diffusivity [m2.s-1],<function lico2_diffusivity_Ramadass2004 at 0x000001A703B59620>
+Positive electrode OCP [V],<function lico2_ocp_Ramadass2004 at 0x000001A703B5B380>
 Positive electrode porosity,0.385
 Positive electrode active material volume fraction,0.59
 Positive particle radius [m],2e-06
@@ -74,11 +74,11 @@ Positive electrode Bruggeman coefficient (electrolyte),4.0
 Positive electrode Bruggeman coefficient (electrode),4.0
 Positive electrode charge transfer coefficient,0.5
 Positive electrode double-layer capacity [F.m-2],0.2
-Positive electrode exchange-current density [A.m-2],<function lico2_electrolyte_exchange_current_density_Ramadass2004 at 0x000001EE8E2CAD30>
+Positive electrode exchange-current density [A.m-2],<function lico2_electrolyte_exchange_current_density_Ramadass2004 at 0x000001A703B5B420>
 Positive electrode density [kg.m-3],3262.0
 Positive electrode specific heat capacity [J.kg-1.K-1],700.0
 Positive electrode thermal conductivity [W.m-1.K-1],2.1
-Positive electrode OCP entropic change [V.K-1],<function lico2_entropic_change_Moura2016 at 0x000001EE8E2CA5E0>
+Positive electrode OCP entropic change [V.K-1],<function lico2_entropic_change_Moura2016 at 0x000001A703B5B2E0>
 Separator porosity,0.508
 Separator Bruggeman coefficient (electrolyte),1.9804586773134945
 Separator density [kg.m-3],1017.0
@@ -87,8 +87,8 @@ Separator thermal conductivity [W.m-1.K-1],0.34
 Initial concentration in electrolyte [mol.m-3],1000.0
 Cation transference number,0.363
 Thermodynamic factor,1.0
-Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Ramadass2004 at 0x000001EE8E3215E0>
-Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Ramadass2004 at 0x000001EE8E321430>
+Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Ramadass2004 at 0x000001A703B5B240>
+Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Ramadass2004 at 0x000001A703B5B600>
 Reference temperature [K],298.15
 Ambient temperature [K],298.15
 Negative current collector surface heat transfer coefficient [W.m-2.K-1],0.0
@@ -100,6 +100,8 @@ Number of electrodes connected in parallel to make a cell,1.0
 Number of cells connected in series to make a battery,1.0
 Lower voltage cut-off [V],2.8
 Upper voltage cut-off [V],4.2
+Open-circuit voltage at 0% SOC [V],2.8
+Open-circuit voltage at 100% SOC [V],4.2
 Initial concentration in negative electrode [mol.m-3],22610.7
 Initial concentration in positive electrode [mol.m-3],25777.5
 Initial temperature [K],298.15

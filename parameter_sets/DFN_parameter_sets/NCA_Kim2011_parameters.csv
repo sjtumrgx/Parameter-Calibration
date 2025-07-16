@@ -1,4 +1,4 @@
-SPMe model parameters:,NCA_Kim2011
+DFN model parameters:,NCA_Kim2011
 Ideal gas constant [J.K-1.mol-1],8.314462618
 Faraday constant [C.mol-1],96485.33212
 Boltzmann constant [J.K-1],1.380649e-23
@@ -53,8 +53,8 @@ Current function [A],0.43
 Contact resistance [Ohm],0
 Negative electrode conductivity [S.m-1],100.0
 Maximum concentration in negative electrode [mol.m-3],28700.0
-Negative electrode diffusivity [m2.s-1],<function graphite_diffusivity_Kim2011 at 0x000001EE8E4964C0>
-Negative electrode OCP [V],<function graphite_ocp_Kim2011 at 0x000001EE8E321550>
+Negative particle diffusivity [m2.s-1],<function graphite_diffusivity_Kim2011 at 0x000001A703A69F80>
+Negative electrode OCP [V],<function graphite_ocp_Kim2011 at 0x000001A703A693A0>
 Negative electrode porosity,0.4
 Negative electrode active material volume fraction,0.51
 Negative particle radius [m],5.083e-07
@@ -62,15 +62,15 @@ Negative electrode Bruggeman coefficient (electrolyte),2.0
 Negative electrode Bruggeman coefficient (electrode),2.0
 Negative electrode charge transfer coefficient,0.5
 Negative electrode double-layer capacity [F.m-2],0.2
-Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Kim2011 at 0x000001EE8E321280>
+Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Kim2011 at 0x000001A703A680E0>
 Negative electrode density [kg.m-3],2136.43638
 Negative electrode specific heat capacity [J.kg-1.K-1],700.0
 Negative electrode thermal conductivity [W.m-1.K-1],1.1339
 Negative electrode OCP entropic change [V.K-1],0.0
 Positive electrode conductivity [S.m-1],10.0
 Maximum concentration in positive electrode [mol.m-3],49000.0
-Positive electrode diffusivity [m2.s-1],<function nca_diffusivity_Kim2011 at 0x000001EE8E3044C0>
-Positive electrode OCP [V],<function nca_ocp_Kim2011 at 0x000001EE8E2D8F70>
+Positive particle diffusivity [m2.s-1],<function nca_diffusivity_Kim2011 at 0x000001A703A682C0>
+Positive electrode OCP [V],<function nca_ocp_Kim2011 at 0x000001A703A6B560>
 Positive electrode porosity,0.4
 Positive electrode active material volume fraction,0.41
 Positive particle radius [m],1.633e-06
@@ -78,7 +78,7 @@ Positive electrode Bruggeman coefficient (electrolyte),2.0
 Positive electrode Bruggeman coefficient (electrode),2.0
 Positive electrode charge transfer coefficient,0.5
 Positive electrode double-layer capacity [F.m-2],0.2
-Positive electrode exchange-current density [A.m-2],<function nca_electrolyte_exchange_current_density_Kim2011 at 0x000001EE8E304040>
+Positive electrode exchange-current density [A.m-2],<function nca_electrolyte_exchange_current_density_Kim2011 at 0x000001A703A6A8E0>
 Positive electrode density [kg.m-3],4205.82708
 Positive electrode specific heat capacity [J.kg-1.K-1],700.0
 Positive electrode thermal conductivity [W.m-1.K-1],1.4007
@@ -91,8 +91,8 @@ Separator thermal conductivity [W.m-1.K-1],0.10672
 Initial concentration in electrolyte [mol.m-3],1200.0
 Cation transference number,0.4
 Thermodynamic factor,1.0
-Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Kim2011 at 0x000001EE8E2D8AF0>
-Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Kim2011 at 0x000001EE8E2D8040>
+Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Kim2011 at 0x000001A703A6B6A0>
+Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Kim2011 at 0x000001A703A6B600>
 Reference temperature [K],298.15
 Negative current collector surface heat transfer coefficient [W.m-2.K-1],0.0
 Positive current collector surface heat transfer coefficient [W.m-2.K-1],0.0
@@ -105,6 +105,8 @@ Number of electrodes connected in parallel to make a cell,1.0
 Number of cells connected in series to make a battery,1.0
 Lower voltage cut-off [V],2.7
 Upper voltage cut-off [V],4.2
+Open-circuit voltage at 0% SOC [V],2.7
+Open-circuit voltage at 100% SOC [V],4.2
 Initial concentration in negative electrode [mol.m-3],18081.0
 Initial concentration in positive electrode [mol.m-3],20090.0
 Initial temperature [K],298.15

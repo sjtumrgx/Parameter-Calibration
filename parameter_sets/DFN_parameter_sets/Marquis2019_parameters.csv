@@ -1,4 +1,4 @@
-SPMe model parameters:,Marquis2019
+DFN model parameters:,Marquis2019
 Ideal gas constant [J.K-1.mol-1],8.314462618
 Faraday constant [C.mol-1],96485.33212
 Boltzmann constant [J.K-1],1.380649e-23
@@ -54,8 +54,8 @@ Current function [A],0.680616
 Contact resistance [Ohm],0
 Negative electrode conductivity [S.m-1],100.0
 Maximum concentration in negative electrode [mol.m-3],24983.2619938437
-Negative electrode diffusivity [m2.s-1],<function graphite_mcmb2528_diffusivity_Dualfoil1998 at 0x000001EE8E304AF0>
-Negative electrode OCP [V],<function graphite_mcmb2528_ocp_Dualfoil1998 at 0x000001EE8E304820>
+Negative particle diffusivity [m2.s-1],<function graphite_mcmb2528_diffusivity_Dualfoil1998 at 0x000001A703A6BF60>
+Negative electrode OCP [V],<function graphite_mcmb2528_ocp_Dualfoil1998 at 0x000001A703A68B80>
 Negative electrode porosity,0.3
 Negative electrode active material volume fraction,0.6
 Negative particle radius [m],1e-05
@@ -63,15 +63,15 @@ Negative electrode Bruggeman coefficient (electrolyte),1.5
 Negative electrode Bruggeman coefficient (electrode),1.5
 Negative electrode charge transfer coefficient,0.5
 Negative electrode double-layer capacity [F.m-2],0.2
-Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Dualfoil1998 at 0x000001EE8E304670>
+Negative electrode exchange-current density [A.m-2],<function graphite_electrolyte_exchange_current_density_Dualfoil1998 at 0x000001A703A68C20>
 Negative electrode density [kg.m-3],1657.0
 Negative electrode specific heat capacity [J.kg-1.K-1],700.0
 Negative electrode thermal conductivity [W.m-1.K-1],1.7
-Negative electrode OCP entropic change [V.K-1],<function graphite_entropic_change_Moura2016 at 0x000001EE8E3043A0>
+Negative electrode OCP entropic change [V.K-1],<function graphite_entropic_change_Moura2016 at 0x000001A703A68CC0>
 Positive electrode conductivity [S.m-1],10.0
 Maximum concentration in positive electrode [mol.m-3],51217.9257309275
-Positive electrode diffusivity [m2.s-1],<function lico2_diffusivity_Dualfoil1998 at 0x000001EE8E2D85E0>
-Positive electrode OCP [V],<function lico2_ocp_Dualfoil1998 at 0x000001EE8E2D8EE0>
+Positive particle diffusivity [m2.s-1],<function lico2_diffusivity_Dualfoil1998 at 0x000001A703A68A40>
+Positive electrode OCP [V],<function lico2_ocp_Dualfoil1998 at 0x000001A703A687C0>
 Positive electrode porosity,0.3
 Positive electrode active material volume fraction,0.5
 Positive particle radius [m],1e-05
@@ -79,11 +79,11 @@ Positive electrode Bruggeman coefficient (electrolyte),1.5
 Positive electrode Bruggeman coefficient (electrode),1.5
 Positive electrode charge transfer coefficient,0.5
 Positive electrode double-layer capacity [F.m-2],0.2
-Positive electrode exchange-current density [A.m-2],<function lico2_electrolyte_exchange_current_density_Dualfoil1998 at 0x000001EE8E3218B0>
+Positive electrode exchange-current density [A.m-2],<function lico2_electrolyte_exchange_current_density_Dualfoil1998 at 0x000001A703A68540>
 Positive electrode density [kg.m-3],3262.0
 Positive electrode specific heat capacity [J.kg-1.K-1],700.0
 Positive electrode thermal conductivity [W.m-1.K-1],2.1
-Positive electrode OCP entropic change [V.K-1],<function lico2_entropic_change_Moura2016 at 0x000001EE8E321040>
+Positive electrode OCP entropic change [V.K-1],<function lico2_entropic_change_Moura2016 at 0x000001A70399D9E0>
 Separator porosity,1.0
 Separator Bruggeman coefficient (electrolyte),1.5
 Separator density [kg.m-3],397.0
@@ -92,8 +92,8 @@ Separator thermal conductivity [W.m-1.K-1],0.16
 Initial concentration in electrolyte [mol.m-3],1000.0
 Cation transference number,0.4
 Thermodynamic factor,1.0
-Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Capiglia1999 at 0x000001EE8E3210D0>
-Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Capiglia1999 at 0x000001EE8E321160>
+Electrolyte diffusivity [m2.s-1],<function electrolyte_diffusivity_Capiglia1999 at 0x000001A70399CD60>
+Electrolyte conductivity [S.m-1],<function electrolyte_conductivity_Capiglia1999 at 0x000001A70399CCC0>
 Reference temperature [K],298.15
 Ambient temperature [K],298.15
 Negative current collector surface heat transfer coefficient [W.m-2.K-1],0.0
@@ -106,6 +106,8 @@ Number of electrodes connected in parallel to make a cell,1.0
 Number of cells connected in series to make a battery,1.0
 Lower voltage cut-off [V],3.105
 Upper voltage cut-off [V],4.1
+Open-circuit voltage at 0% SOC [V],3.105
+Open-circuit voltage at 100% SOC [V],4.1
 Initial concentration in negative electrode [mol.m-3],19986.609595075
 Initial concentration in positive electrode [mol.m-3],30730.7554385565
 Initial temperature [K],298.15

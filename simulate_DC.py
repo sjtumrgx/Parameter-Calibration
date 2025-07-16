@@ -168,6 +168,8 @@ def main():
 
     # 6. Import drive cycle data
     drive_cycle_file = args.drive_cycle
+    file_num = drive_cycle_file.split('/')[-1].split('#')[0]
+    print('File Number:', file_num)
     drive_cycle_data = pd.read_csv(drive_cycle_file)
     print(f"Loaded drive cycle data from {drive_cycle_file}")
     print(f"Drive cycle data shape: {drive_cycle_data.shape}")
@@ -243,18 +245,18 @@ def main():
     plt.tight_layout()
 
     # 14. Save figure
-    fig_path = os.path.join(output_dir, "simu_fig", "01#-T25-DC-simulation.png")
+    fig_path = os.path.join(output_dir, "simu_fig", f"{file_num}#-T25-DC-simulation.png")
     plt.savefig(fig_path)
     print(f"Saved figure to {fig_path}")
     plt.show()
 
     # 15. Save data
     data = {
-        "Time [s]": sim_time,
-        "Voltage_simulation [V]": sim_voltage,
-        "Current_simulation [A]": sim_current,
-        "Voltage_data [V]": np.interp(sim_time, time_data, voltage_data),
-        "Current_data [A]": np.interp(sim_time, time_data, current_data),
+        "Time": sim_time,
+        "Voltage_simulation": sim_voltage,
+        "Current_simulation": sim_current,
+        "Voltage_data": np.interp(sim_time, time_data, voltage_data),
+        "Current_data": np.interp(sim_time, time_data, current_data),
         "SOC_data": np.interp(sim_time, time_data, soc_data)
     }
 
@@ -264,7 +266,7 @@ def main():
 
     # Create DataFrame and save to CSV
     results_df = pd.DataFrame(data)
-    csv_path = os.path.join(output_dir, "simu_data", "01#-T25-DC-simulation.csv")
+    csv_path = os.path.join(output_dir, "simu_data", f"{file_num}#-T25-DC-simulation.csv")
     results_df.to_csv(csv_path, index=False)
     print(f"Saved simulation data to {csv_path}")
 
