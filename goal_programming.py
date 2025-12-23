@@ -61,40 +61,35 @@ def plot_time_discharge(time_resampled, voltage_simulation_resampled, voltage_re
 
 
 def compute_time_discharge(sol, file_path, soc_range=(0.9, 1)):
-    # 1. 提取仿真时间和电压
     time_simulation = sol["Time [s]"].entries
     voltage_simulation = sol["Voltage [V]"].entries
 
-    # 2. 读取实测数据
     data = pd.read_csv(file_path)
     time_real = data['time'].values
     voltage_real = data['V'].values
 
-    # 3. 处理 SOC，将 "100%" ~ "0%" 转换为 1.0 ~ 0.0
-    #    注意：如果原始数据是 "100%","99%" 等，需要先去掉 '%' 再除以 100
     soc_str = data['SOC'].str.replace('%', '', regex=False)  # 去掉 %
     soc_numeric = pd.to_numeric(soc_str) / 100.0  # 转换为数值并归一化（0~1）
 
-    # 4. 找到仿真与实测的可比最大时间
     time_max_real = time_real[-1]
     time_max_sim = time_simulation[-1]
     real_time_max = min(time_max_real, time_max_sim)
 
-    # 5. 重采样时间，间隔可自行调整（此处每 10s 一点）
+    # 重采样时间，间隔可自行调整（此处每 10s 一点）
     time_resampled = np.arange(0, real_time_max + 1, 10)
 
-    # 6. 对仿真与实测电压做插值
+    # 对仿真与实测电压做插值
     interp_func_sim = interp1d(time_simulation, voltage_simulation, kind='linear', fill_value="extrapolate")
     voltage_simulation_resampled = interp_func_sim(time_resampled)
 
     interp_func_real_volt = interp1d(time_real, voltage_real, kind='linear', fill_value="extrapolate")
     voltage_real_resampled = interp_func_real_volt(time_resampled)
 
-    # 7. 对实测 SOC 做插值
+    # 对实测 SOC 做插值
     interp_func_real_soc = interp1d(time_real, soc_numeric, kind='linear', fill_value="extrapolate")
     soc_resampled = interp_func_real_soc(time_resampled)
 
-    # 8. 根据 soc_range 进行筛选
+    # 根据 soc_range 进行筛选
     if soc_range == 'all':
         # 不做任何筛选，直接计算全区间 RMSE
         mask = np.ones_like(time_resampled, dtype=bool)
@@ -330,7 +325,7 @@ def obj_func(solution, soc_range):
 def eval_objective(x):
     """返回整体的RMSE"""
     soc_range = 'all'
-    return obj_func(x, soc_range)  # 您需要实现obj_func
+    return obj_func(x, soc_range) 
 
 
 def eval_c1(x):
@@ -714,7 +709,7 @@ if __name__ == '__main__':
     bounds = torch.stack([lb, ub])
 
     batch_size = 10
-    n_init = 50
+    n_init = 10
     print("devce:", device)
     dtype = torch.double
 

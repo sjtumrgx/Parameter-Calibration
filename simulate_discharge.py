@@ -177,12 +177,6 @@ def main():
 
     args = parser.parse_args()
 
-    # ##########################################################################
-    # ### --- DEFINE YOUR FIXED PARAMETER VALUES HERE --- ###
-    # Replace the placeholder values below with the actual physical values
-    # obtained from your parameter identification or literature for the 280Ah cell.
-    # Ensure units match PyBaMM's expectations (mostly SI units).
-    # ##########################################################################
     fixed_parameters = {
         # 几何与结构参数 - 保持不变
         "N_parallel": 200,
@@ -196,9 +190,9 @@ def main():
         # 材料组成参数 - 微调孔隙率
         "Positive_electrode_active_material_volume_fraction": 0.52,
         "Negative_electrode_active_material_volume_fraction": 0.55,
-        "Positive_electrode_porosity": 0.38,  # 进一步提高孔隙率(原0.35)
-        "Negative_electrode_porosity": 0.38,  # 添加负极孔隙率参数
-        "Separator_porosity": 0.5,  # 略微提高(原0.45)
+        "Positive_electrode_porosity": 0.38,  
+        "Negative_electrode_porosity": 0.38,  
+        "Separator_porosity": 0.5,  
 
         # 传输特性参数 - 关键优化区域
         "Positive_electrode_diffusivity": 3e-13,  # 大幅提高(原8e-14)，解决放电后期扩散限制
